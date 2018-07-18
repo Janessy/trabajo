@@ -11,6 +11,22 @@
 |
 */
 
+
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/login', function () {
+    return view('app');
+});
+
+Route::resource('almacen/categoria', 'CategoriaController'); 
+Route::resource('almacen/comida', 'ComidaController'); 
+Route::resource('almacen/mesa', 'MesaController'); 
+Route::resource('pedido/orden', 'PedidosController');
+
+
+Route::get('/home', 'HomeController@index')->name('home');
+Route::auth();
+
+Route::get('/home', 'HomeController@index');
